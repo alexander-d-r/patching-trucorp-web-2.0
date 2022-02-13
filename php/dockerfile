@@ -1,0 +1,13 @@
+# FROM digunakan untuk bilang ke Docker 
+# base image mana yang ingin kita gunakan buat bikin image baru.
+# disini kita ingin menggunakan base image php versi 7.4
+# yang extend ke httpd/apache. sehingga, kita bilang ke Docker.
+# Menggunakan syntax FROM
+FROM php:7.4-apache
+
+# COPY index.php ke /var/www/html
+COPY index.php /var/www/html
+
+# RUN/menjalankan command untuk install mysqli
+# ketika dockernya di build, mysqlinya udh terinstall di dalam
+RUN docker-php-ext-install mysqli

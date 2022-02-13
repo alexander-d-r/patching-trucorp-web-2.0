@@ -1,0 +1,12 @@
+# FROM digunakan untuk bilang ke Docker 
+# base image mana yang ingin kita gunakan buat bikin image baru.
+# disini kita ingin membuat image mysql.
+# sehingga, kita bilang ke Docker.
+# Menggunakan syntax FROM
+FROM mysql
+
+# ENV digunakan untuk memberikan nilai default
+ENV MYSQL_DATABASE Trucorp
+
+# COPY trucorp-db.sql ke /docker-entrypoint-initdb.d
+COPY trucorp-db.sql /docker-entrypoint-initdb.d
